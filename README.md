@@ -5,9 +5,10 @@
 </p>
 
 <p align="center">
+  <a href="https://erolrecep.github.io/rcre-learn/"><img src="https://img.shields.io/badge/Demo-Live_Odyssey_App-ff781f?style=flat" alt="Live Odyssey Web App"></a>
   <img src="https://img.shields.io/badge/Language-ISO_C23-00599C?logo=c&style=flat" alt="ISO C23">
   <img src="https://img.shields.io/badge/Sanitizers-ASan_%7C_UBSan_Clean-success?style=flat" alt="Sanitizers Clean">
-  <img src="https://img.shields.io/badge/Web_Odyssey-Interactive_HTML5-00f2fe?style=flat" alt="Interactive Web App">
+  <img src="https://img.shields.io/badge/Theme-Warm_Autumn-d4a373?style=flat" alt="Autumn Palette">
   <img src="https://img.shields.io/badge/Audience-High_School_%7C_Beginners-orange?style=flat" alt="Audience">
   <img src="https://img.shields.io/badge/License-MIT-blue?style=flat" alt="License">
 </p>

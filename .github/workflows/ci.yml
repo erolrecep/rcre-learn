@@ -1,0 +1,38 @@
+name: CI Test & Sanitizer Battery
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Build & Verify (Clang ASan/UBSan)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install Clang & Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang make
+
+      - name: Locate Repository Root
+        id: cd_step
+        run: |
+          if [ -d "apps/rcre-learn" ]; then
+            echo "workdir=apps/rcre-learn" >> "$GITHUB_OUTPUT"
+          else
+            echo "workdir=." >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Run 10-Week Test Battery
+        working-directory: ${{ steps.cd_step.outputs.workdir }}
+        run: make test
+
+      - name: Run AddressSanitizer & UndefinedBehaviorSanitizer
+        working-directory: ${{ steps.cd_step.outputs.workdir }}
+        run: make san

@@ -10,7 +10,7 @@ WEEKS = 01 02 03 04 05 06 07 08 09 10
 BIN_DIR = bin
 BUILD_DIR = build
 
-.PHONY: all clean test san serve help
+.PHONY: all clean test san serve sync-blog help
 
 all: $(BIN_DIR) $(BUILD_DIR)
 	@echo "==> Building all curriculum suites..."
@@ -81,6 +81,12 @@ san: $(BIN_DIR)
 serve:
 	@echo "==> Serving rcre-learn web app at http://localhost:8000"
 	@cd web && python3 -m http.server 8000
+
+sync-blog:
+	@echo "==> Syncing rcre-learn web app to Hugo blog static directory..."
+	@mkdir -p ../personal-blog/blog/receps_blog/static/rcre-learn
+	@cp web/index.html ../personal-blog/blog/receps_blog/static/rcre-learn/index.html
+	@echo "==> Synced! Run 'make deploy' in apps/personal-blog to publish to erolrecep.github.io."
 
 clean:
 	@rm -rf $(BIN_DIR) $(BUILD_DIR)
