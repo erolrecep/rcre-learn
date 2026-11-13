@@ -10,7 +10,11 @@ WEEKS = 01 02 03 04 05 06 07 08 09 10
 BIN_DIR = bin
 BUILD_DIR = build
 
-.PHONY: all clean test san serve sync-blog help
+.PHONY: help prep all clean test san serve sync-blog
+
+prep:
+	@chmod +x scripts/prep.sh 2>/dev/null || true
+	@bash scripts/prep.sh
 
 all: $(BIN_DIR) $(BUILD_DIR)
 	@echo "==> Building all curriculum suites..."
@@ -94,6 +98,7 @@ clean:
 
 help:
 	@echo "RCRE-LEARN targets:"
+	@echo "  make prep  - Detect OS/Arch/Bitness and prepare build environment"
 	@echo "  make all   - Compile all 10 weekly test binaries"
 	@echo "  make test  - Run tests for weeks 1 through 10"
 	@echo "  make san   - Run tests under Clang ASan + UBSan sanitizers"

@@ -38,10 +38,19 @@ An automated audit of the edge test cluster and local compute mesh reveals an ac
 
 Even on a 2016-era **Raspberry Pi 3** with only 1GB RAM, these projects compile in seconds and run at bare-metal speeds.
 
-### Prerequisites (Raspberry Pi OS / Debian)
+### Automatic Environment Preparation: `make prep`
+
+Every project repository contains an automated environment bootstrap target: `make prep`. When invoked, it automatically probes the host system:
+* **OS & Distro Detection**: Automatically distinguishes Debian, Raspbian, Ubuntu, Arch, Fedora, Alpine, or macOS.
+* **Hardware Architecture & Board Model**: Probes for Raspberry Pi 3/4/5 (`/proc/device-tree/model`), NVIDIA Jetson Nano, Apple Silicon, or x86_64 PC.
+* **32-Bit vs. 64-Bit Mode**: Detects 32-bit (`armv7l`, `armhf`) vs. 64-bit (`aarch64`, `x86_64`) address spaces and configures memory thresholds accordingly.
+* **SIMD Vector Engine**: Identifies ARM NEON (VFPv4 on 32-bit, AdvSIMD on 64-bit) or x86 AVX2/FMA.
+* **Automated Package Installation**: Installs required compilers (`gcc`, `clang`), `make`, `pkg-config`, and image/camera libraries (`libpng`, `libjpeg`, `libtiff`, `libv4l-dev`).
+* **C23 Toolchain Verification**: Validates `-std=c2x` / `-std=c23` compliance before any build begins.
+
+To prepare any node for building:
 ```bash
-sudo apt update
-sudo apt install -y build-essential gcc clang make git
+make prep
 ```
 
 ---
