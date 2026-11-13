@@ -6,18 +6,20 @@
   <title>rcre-learn: The Silicon Odyssey (10-Week Systems Journey)</title>
   <style>
     :root {
-      --bg-dark: #0b0f19;
-      --bg-card: #111827;
-      --bg-panel: #1a2333;
-      --border: #2d3748;
-      --accent-cyan: #00f2fe;
-      --accent-blue: #4facfe;
-      --accent-purple: #9d4edd;
-      --accent-green: #10b981;
-      --accent-orange: #f59e0b;
-      --accent-red: #ef4444;
-      --text-main: #f3f4f6;
-      --text-muted: #9ca3af;
+      /* Autumn Theme Palette: Orange, Warm Amber, Light Caramel Brown & Bark */
+      --bg-dark: #16100b;             /* Deep espresso bark */
+      --bg-card: #221811;             /* Warm roasted chestnut / walnut */
+      --bg-panel: #2d2017;            /* Toasted cinnamon / oak panel */
+      --border: #4a3424;              /* Spiced bronze border */
+      --accent-orange: #ff781f;       /* Vibrant maple pumpkin orange */
+      --accent-amber: #f59e0b;        /* Golden harvest amber */
+      --accent-brown: #d4a373;        /* Warm light caramel brown */
+      --accent-terracotta: #c2410c;   /* Rich autumn clay */
+      --accent-moss: #84a98c;         /* Autumn forest sage */
+      --accent-crimson: #e11d48;      /* Deep autumn leaf crimson */
+      --accent-gold: #fde047;         /* Golden wheat */
+      --text-main: #fbf5ee;           /* Warm antique parchment cream */
+      --text-muted: #bfa89b;          /* Soft toasted pecan / taupe */
       --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
       --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
@@ -34,7 +36,7 @@
 
     /* Header & Hero */
     header {
-      background: linear-gradient(180deg, #162032 0%, var(--bg-dark) 100%);
+      background: linear-gradient(180deg, #261b12 0%, var(--bg-dark) 100%);
       border-bottom: 1px solid var(--border);
       padding: 1.5rem 2rem;
       position: sticky;
@@ -57,19 +59,20 @@
       gap: 0.75rem;
     }
     .logo-badge {
-      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
-      color: #000;
+      background: linear-gradient(135deg, var(--accent-orange), var(--accent-brown));
+      color: #1a0f07;
       font-weight: 800;
       font-size: 0.85rem;
-      padding: 0.25rem 0.6rem;
+      padding: 0.25rem 0.65rem;
       border-radius: 6px;
       letter-spacing: 0.05em;
+      box-shadow: 0 2px 8px rgba(255, 120, 31, 0.25);
     }
     h1.app-title {
       font-size: 1.4rem;
       font-weight: 700;
       letter-spacing: -0.02em;
-      background: linear-gradient(90deg, #fff, #93c5fd);
+      background: linear-gradient(90deg, #fff7ed, var(--accent-orange), var(--accent-brown));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -79,11 +82,11 @@
       font-size: 0.75rem;
     }
     .tag {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(212, 163, 115, 0.1);
+      border: 1px solid rgba(212, 163, 115, 0.25);
       padding: 0.2rem 0.5rem;
       border-radius: 4px;
-      color: #cbd5e1;
+      color: #faedd9;
     }
 
     /* Overall Layout: Odyssey Map + Interactive Lab */
@@ -112,6 +115,7 @@
       display: flex;
       flex-direction: column;
       gap: 1rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     }
     .roadmap-header {
       border-bottom: 1px solid var(--border);
@@ -122,20 +126,21 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: var(--accent-cyan);
+      color: var(--accent-orange);
     }
     .progress-bar-container {
-      background: rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.08);
       height: 6px;
       border-radius: 3px;
       margin-top: 0.5rem;
       overflow: hidden;
     }
     .progress-bar-fill {
-      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue));
+      background: linear-gradient(90deg, var(--accent-orange), var(--accent-brown));
       height: 100%;
       width: 10%;
       transition: width 0.3s ease;
+      box-shadow: 0 0 10px rgba(255, 120, 31, 0.4);
     }
 
     .station-list {
@@ -156,31 +161,32 @@
       position: relative;
     }
     .station-item:hover {
-      border-color: var(--accent-blue);
+      border-color: var(--accent-brown);
       transform: translateX(3px);
     }
     .station-item.active {
-      background: #1e293b;
-      border-color: var(--accent-cyan);
-      box-shadow: 0 0 15px rgba(0, 242, 254, 0.15);
+      background: #39281c;
+      border-color: var(--accent-orange);
+      box-shadow: 0 0 16px rgba(255, 120, 31, 0.22);
     }
     .station-num {
       width: 28px;
       height: 28px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.06);
+      background: rgba(255, 120, 31, 0.12);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 0.75rem;
       font-weight: 700;
-      color: var(--accent-cyan);
-      border: 1px solid rgba(0, 242, 254, 0.3);
+      color: var(--accent-orange);
+      border: 1px solid rgba(255, 120, 31, 0.4);
       flex-shrink: 0;
     }
     .station-item.active .station-num {
-      background: var(--accent-cyan);
-      color: #000;
+      background: var(--accent-orange);
+      color: #1a0f07;
+      font-weight: 800;
     }
     .station-info {
       flex: 1;
@@ -214,6 +220,7 @@
       padding: 1.5rem;
       position: relative;
       overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     }
     .chapter-badge {
       display: inline-block;
@@ -221,7 +228,7 @@
       text-transform: uppercase;
       letter-spacing: 0.1em;
       font-weight: 700;
-      color: var(--accent-cyan);
+      color: var(--accent-orange);
       margin-bottom: 0.25rem;
     }
     .chapter-title {
@@ -231,7 +238,7 @@
       margin-bottom: 0.5rem;
     }
     .chapter-story {
-      color: #cbd5e1;
+      color: #faedd9;
       font-size: 0.95rem;
       max-width: 800px;
       margin-bottom: 1rem;
@@ -245,8 +252,8 @@
       border-top: 1px solid rgba(255,255,255,0.08);
       font-size: 0.8rem;
     }
-    .meta-item { display: flex; align-items: center; gap: 0.4rem; color: #94a3b8; }
-    .meta-item strong { color: var(--accent-blue); }
+    .meta-item { display: flex; align-items: center; gap: 0.4rem; color: var(--text-muted); }
+    .meta-item strong { color: var(--accent-brown); }
 
     /* Interactive Simulation Canvas Container */
     .sim-card {
@@ -278,9 +285,9 @@
       align-items: center;
     }
     .btn {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.15);
-      color: #fff;
+      background: rgba(212, 163, 115, 0.12);
+      border: 1px solid rgba(212, 163, 115, 0.25);
+      color: var(--text-main);
       padding: 0.4rem 0.85rem;
       border-radius: 6px;
       font-size: 0.8rem;
@@ -292,23 +299,26 @@
       gap: 0.4rem;
     }
     .btn:hover {
-      background: rgba(255,255,255,0.15);
-      border-color: #cbd5e1;
+      background: rgba(212, 163, 115, 0.22);
+      border-color: var(--accent-brown);
     }
     .btn-primary {
-      background: linear-gradient(135deg, #0284c7, #2563eb);
+      background: linear-gradient(135deg, #c2410c, #9a3412);
+      color: #fff;
       border: none;
     }
     .btn-primary:hover {
-      background: linear-gradient(135deg, #0369a1, #1d4ed8);
+      background: linear-gradient(135deg, #ea580c, #c2410c);
     }
     .btn-cyan {
-      background: linear-gradient(135deg, #00f2fe, #4facfe);
-      color: #000;
+      background: linear-gradient(135deg, var(--accent-orange), var(--accent-brown));
+      color: #1a0f07;
+      font-weight: 700;
       border: none;
     }
     .btn-cyan:hover {
-      opacity: 0.9;
+      opacity: 0.92;
+      box-shadow: 0 0 12px rgba(255, 120, 31, 0.35);
     }
 
     .sim-body {
@@ -319,7 +329,7 @@
       justify-content: center;
       align-items: center;
       position: relative;
-      background: #0d131f;
+      background: #140d08;
     }
 
     /* Simulation Module Styles */
@@ -333,7 +343,7 @@
     }
     .locker-box {
       background: var(--bg-panel);
-      border: 2px solid #334155;
+      border: 2px solid #4a3424;
       border-radius: 8px;
       padding: 0.6rem 0.4rem;
       text-align: center;
@@ -342,15 +352,15 @@
       position: relative;
     }
     .locker-box:hover {
-      border-color: var(--accent-cyan);
+      border-color: var(--accent-orange);
       transform: translateY(-3px);
     }
     .locker-box.occupied {
-      border-color: var(--accent-blue);
-      background: #1e293b;
+      border-color: var(--accent-brown);
+      background: #312217;
     }
     .locker-box.swapped {
-      border-color: var(--accent-green);
+      border-color: var(--accent-orange);
       animation: pulseGreen 0.6s ease;
     }
     .locker-addr {
@@ -363,11 +373,11 @@
       font-family: var(--font-mono);
       font-size: 1rem;
       font-weight: 700;
-      color: var(--accent-cyan);
+      color: var(--accent-orange);
     }
     .locker-label {
       font-size: 0.65rem;
-      color: #e2e8f0;
+      color: #faedd9;
       margin-top: 0.2rem;
     }
 
@@ -375,8 +385,8 @@
     .arena-bar-container {
       width: 100%;
       max-width: 800px;
-      background: #1e293b;
-      border: 2px solid #334155;
+      background: #251a12;
+      border: 2px solid #4a3424;
       border-radius: 8px;
       height: 70px;
       position: relative;
@@ -390,8 +400,8 @@
       justify-content: center;
       font-size: 0.75rem;
       font-weight: 700;
-      color: #000;
-      border-right: 1px solid rgba(0,0,0,0.2);
+      color: #1a0f07;
+      border-right: 1px solid rgba(0,0,0,0.25);
       transition: width 0.3s ease;
     }
     .arena-watermark-line {
@@ -399,8 +409,8 @@
       top: 0;
       bottom: 0;
       width: 3px;
-      background: var(--accent-red);
-      box-shadow: 0 0 8px var(--accent-red);
+      background: #ff5400;
+      box-shadow: 0 0 10px #ff5400;
       transition: left 0.3s ease;
       z-index: 10;
     }
@@ -451,7 +461,7 @@
     }
     .bus-lane {
       background: var(--bg-panel);
-      border: 1px solid #334155;
+      border: 1px solid #4a3424;
       border-radius: 8px;
       padding: 1rem;
     }
@@ -486,10 +496,10 @@
       display: grid;
       grid-template-columns: repeat(3, 50px);
       gap: 4px;
-      background: #1e293b;
+      background: #251a12;
       padding: 6px;
       border-radius: 6px;
-      border: 2px solid var(--accent-cyan);
+      border: 2px solid var(--accent-orange);
     }
     .matrix-cell {
       width: 50px;
@@ -499,8 +509,9 @@
       justify-content: center;
       font-family: var(--font-mono);
       font-weight: 700;
-      background: #0f172a;
+      background: #18100a;
       border-radius: 4px;
+      color: #fff;
     }
 
     /* Sim 6: 8-Lane SIMD */
@@ -515,7 +526,7 @@
       display: flex;
       align-items: center;
       gap: 0.75rem;
-      background: #1e293b;
+      background: #251a12;
       padding: 0.5rem 1rem;
       border-radius: 6px;
     }
@@ -526,13 +537,14 @@
       flex: 1;
     }
     .lane-box {
-      background: #0f172a;
-      border: 1px solid #3b82f6;
+      background: #18100a;
+      border: 1px solid var(--accent-brown);
       border-radius: 4px;
       padding: 0.4rem;
       text-align: center;
       font-family: var(--font-mono);
       font-size: 0.75rem;
+      color: var(--accent-brown);
     }
 
     /* Sim 8: Master Dispatcher */
@@ -545,20 +557,20 @@
     }
     .core-card {
       background: var(--bg-panel);
-      border: 1px solid #334155;
+      border: 1px solid #4a3424;
       border-radius: 8px;
       padding: 1rem;
       text-align: center;
       position: relative;
     }
     .core-card.p-core { border-top: 3px solid var(--accent-orange); }
-    .core-card.e-core { border-top: 3px solid var(--accent-green); }
-    .core-card.gpu-core { border-top: 3px solid var(--accent-purple); }
+    .core-card.e-core { border-top: 3px solid var(--accent-brown); }
+    .core-card.gpu-core { border-top: 3px solid var(--accent-terracotta); }
     .core-status {
       font-size: 0.75rem;
       font-weight: 700;
       margin-top: 0.5rem;
-      color: var(--accent-cyan);
+      color: var(--accent-orange);
     }
 
     /* Sim 10: Live Video Canvas */
@@ -570,10 +582,10 @@
     }
     #visionCanvas {
       background: #000;
-      border: 2px solid var(--accent-cyan);
+      border: 2px solid var(--accent-orange);
       border-radius: 8px;
       max-width: 100%;
-      box-shadow: 0 0 20px rgba(0, 242, 254, 0.2);
+      box-shadow: 0 0 24px rgba(255, 120, 31, 0.25);
     }
 
     /* Code & Technical Breakdown Card */
@@ -582,6 +594,7 @@
       border: 1px solid var(--border);
       border-radius: 12px;
       overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     }
     .code-tabs {
       display: flex;
@@ -601,16 +614,16 @@
     }
     .tab-btn.active {
       color: #fff;
-      border-bottom-color: var(--accent-cyan);
-      background: rgba(255,255,255,0.04);
+      border-bottom-color: var(--accent-orange);
+      background: rgba(255, 120, 31, 0.08);
     }
     .code-content {
       padding: 1.25rem;
-      background: #0a0f1d;
+      background: #120b07;
       font-family: var(--font-mono);
       font-size: 0.85rem;
       line-height: 1.6;
-      color: #e2e8f0;
+      color: #fbf5ee;
       overflow-x: auto;
     }
     .code-explanation {
@@ -618,22 +631,22 @@
       background: var(--bg-card);
       border-top: 1px solid var(--border);
       font-size: 0.9rem;
-      color: #cbd5e1;
+      color: #faedd9;
     }
     .code-explanation h4 {
-      color: var(--accent-cyan);
+      color: var(--accent-orange);
       margin-bottom: 0.5rem;
     }
 
     /* Terminal Output / Test Runner */
     .terminal-card {
-      background: #050811;
-      border: 1px solid #1e293b;
+      background: #0d0805;
+      border: 1px solid #3d281a;
       border-radius: 8px;
       padding: 1rem;
       font-family: var(--font-mono);
       font-size: 0.8rem;
-      color: #10b981;
+      color: #fbbf24;
       margin-top: 1rem;
     }
 
@@ -968,8 +981,8 @@
         codeExpl: "JavaScript passes the ImageData pixel pointer directly to the compiled C23 WebAssembly function. C processes the pixels in place with zero serialization overhead.",
         terminal: "[Week 10 Test] Testing WASM FFI Pixel Processing & Capstone Filter...\n  ✔ Week 10 PASSED: WASM buffer mutation & image filter pipeline verified.\n  ==> Ready for global web deployment!",
         starter: `void apply_duotone_filter(uint8_t* rgba, int count);`,
-        solution: `void apply_duotone_filter(uint8_t* rgba, int count) {\n    // 15-bit fixed-point gray + Neon Cyan / Magenta duo-tone\n}`,
-        test: `assert(pixels[0] == 0 && pixels[1] == 255); // Cyan asserted`
+        solution: `void apply_duotone_filter(uint8_t* rgba, int count) {\n    // 15-bit fixed-point gray + Warm Golden Harvest / Autumn Cider duo-tone\n}`,
+        test: `assert(pixels[0] == 0 && pixels[1] == 255); // Duotone asserted`
       }
     ];
 
@@ -1057,7 +1070,7 @@
       } else if (id === 3) {
         // Week 3: Pixel Microscope
         controls.innerHTML = `
-          <label style="font-size:0.8rem; color:#fff;">Zoom Level:</label>
+          <label style="font-size:0.8rem; color:#faedd9;">Zoom Level:</label>
           <input type="range" min="1" max="5" value="3" onchange="renderPixelMosaic(this.value)">
           <button class="btn btn-cyan" onclick="toggleGrayscaleMode()">Toggle 15-bit Gray</button>
         `;
@@ -1104,7 +1117,7 @@
       } else if (id === 10) {
         // Week 10: Canvas / WASM Portal
         controls.innerHTML = `
-          <button class="btn btn-cyan" onclick="applyCanvasFilter('duotone')">Cyberpunk Duo-Tone</button>
+          <button class="btn btn-cyan" onclick="applyCanvasFilter('duotone')">Autumn Amber Duo-Tone</button>
           <button class="btn" onclick="applyCanvasFilter('sobel')">Sobel Outline</button>
           <button class="btn" onclick="applyCanvasFilter('invert')">Invert</button>
         `;
@@ -1126,7 +1139,7 @@
         `;
       }
       html += '</div>';
-      html += `<div style="margin-top:1.5rem; font-size:0.85rem; color:#94a3b8;">
+      html += `<div style="margin-top:1.5rem; font-size:0.85rem; color:var(--text-muted);">
         Click <strong>Swap Locker 0 & 1</strong> to see pointers exchange values safely via temporary storage!
       </div>`;
       body.innerHTML = html;
@@ -1164,7 +1177,7 @@
       });
 
       body.innerHTML = `
-        <div style="width:100%; max-width:800px; display:flex; justify-content:space-between; margin-bottom:0.5rem; font-size:0.8rem; color:#94a3b8;">
+        <div style="width:100%; max-width:800px; display:flex; justify-content:space-between; margin-bottom:0.5rem; font-size:0.8rem; color:var(--text-muted);">
           <span>Address: 0x2000 (Base)</span>
           <span>Capacity: ${simArenaCapacity} Bytes (64-byte Aligned)</span>
         </div>
@@ -1173,11 +1186,11 @@
           <div class="arena-watermark-line" style="left: ${pct}%;"></div>
         </div>
         <div class="arena-stats">
-          <div>Allocated: <span style="color:var(--accent-cyan);">${simArenaOffset} / ${simArenaCapacity} B</span></div>
-          <div>Watermark: <span style="color:var(--accent-red);">${pct.toFixed(1)}%</span></div>
-          <div>Reset Cost: <span style="color:var(--accent-green);">1 Cycle (O(1))</span></div>
+          <div>Allocated: <span style="color:var(--accent-orange); font-weight:700;">${simArenaOffset} / ${simArenaCapacity} B</span></div>
+          <div>Watermark: <span style="color:#ff5400; font-weight:700;">${pct.toFixed(1)}%</span></div>
+          <div>Reset Cost: <span style="color:var(--accent-amber); font-weight:700;">1 Cycle (O(1))</span></div>
         </div>
-        <div style="margin-top:1rem; font-size:0.85rem; color:#94a3b8;">
+        <div style="margin-top:1rem; font-size:0.85rem; color:var(--text-muted);">
           Notice: Each block is pushed contiguously in 1 nanosecond. A single click of <strong>O(1) Bulk Reset</strong> wipes all allocations instantly!
         </div>
       `;
@@ -1185,7 +1198,8 @@
 
     function pushArenaBlock(size, name) {
       if (simArenaOffset + size <= simArenaCapacity) {
-        const colors = ['#00f2fe', '#4facfe', '#9d4edd', '#10b981', '#f59e0b'];
+        // Warm Autumn Tones: Orange, Caramel, Amber, Terracotta, Moss
+        const colors = ['#ff781f', '#d4a373', '#f59e0b', '#c2410c', '#84a98c'];
         arenaBlocks.push({ size, name, color: colors[arenaBlocks.length % colors.length] });
         simArenaOffset += size;
         renderArenaSim();
@@ -1207,28 +1221,28 @@
       let html = `<div class="pixel-microscope-layout">`;
       html += `<div class="pixel-grid-8x8">`;
       const colors = [
-        [255, 60, 60], [60, 255, 60], [60, 60, 255], [240, 200, 30],
-        [180, 50, 220], [30, 220, 200], [255, 120, 30], [200, 200, 200],
-        [40, 40, 40], [255, 255, 255], [220, 40, 100], [100, 200, 50],
-        [50, 100, 240], [240, 150, 150], [150, 240, 150], [150, 150, 240],
-        [200, 100, 50], [80, 80, 80]
+        [245, 120, 31], [212, 163, 115], [194, 65, 12], [245, 158, 11],
+        [160, 82, 45], [132, 169, 140], [234, 88, 12], [180, 140, 100],
+        [70, 45, 30], [254, 243, 199], [217, 119, 6], [120, 53, 15],
+        [251, 146, 60], [225, 29, 72], [180, 83, 9], [146, 64, 14],
+        [202, 138, 4], [90, 60, 40]
       ];
       for (let i = 0; i < 18; i++) {
         let [r, g, b] = colors[i % colors.length];
         let valText = isGrayMode ? ((r * 19595 + g * 38469 + b * 7472) >> 16) : `${r}`;
         let bg = isGrayMode ? `rgb(${valText},${valText},${valText})` : `rgb(${r},${g},${b})`;
-        let textColor = isGrayMode ? (valText > 128 ? '#000' : '#fff') : '#fff';
+        let textColor = isGrayMode ? (valText > 128 ? '#1a0f07' : '#fff') : '#fff';
         html += `<div class="subpixel" style="background:${bg}; color:${textColor};">${valText}</div>`;
       }
       html += `</div>`;
       html += `
-        <div style="max-width:340px; font-size:0.85rem; color:#cbd5e1;">
-          <h4 style="color:var(--accent-cyan); margin-bottom:0.5rem;">15-Bit Fixed-Point Formula</h4>
-          <code style="background:#1e293b; padding:0.4rem 0.6rem; border-radius:4px; display:block; margin-bottom:0.75rem;">
+        <div style="max-width:340px; font-size:0.85rem; color:#faedd9;">
+          <h4 style="color:var(--accent-orange); margin-bottom:0.5rem;">15-Bit Fixed-Point Formula</h4>
+          <code style="background:#251a12; border:1px solid #4a3424; padding:0.4rem 0.6rem; border-radius:4px; display:block; margin-bottom:0.75rem; color:var(--accent-gold);">
             Y = (19595·R + 38469·G + 7472·B) >> 16
           </code>
           <p>Status: <strong>${isGrayMode ? 'Grayscale (0 LSB Discrepancy)' : 'RGB Channels Active'}</strong></p>
-          <p style="margin-top:0.5rem; color:#94a3b8;">Zero floating point latency. Bit-exact with OpenCV cvtColor!</p>
+          <p style="margin-top:0.5rem; color:var(--text-muted);">Zero floating point latency. Bit-exact with OpenCV cvtColor!</p>
         </div>
       `;
       html += `</div>`;
@@ -1254,14 +1268,14 @@
       if (simAoSMode) {
         // AoS: [R, G, B, R, G, B...]
         for (let i = 0; i < 8; i++) {
-          redCells += `<div class="byte-cell" style="background:#ef4444; color:#fff;">R</div>`;
-          redCells += `<div class="byte-cell" style="background:#334155; color:#94a3b8;">G</div>`;
-          redCells += `<div class="byte-cell" style="background:#334155; color:#94a3b8;">B</div>`;
+          redCells += `<div class="byte-cell" style="background:var(--accent-orange); color:#1a0f07;">R</div>`;
+          redCells += `<div class="byte-cell" style="background:#3d2b1f; color:#8c7565;">G</div>`;
+          redCells += `<div class="byte-cell" style="background:#3d2b1f; color:#8c7565;">B</div>`;
         }
       } else {
         // SoA: [R, R, R, R, R, R...]
         for (let i = 0; i < 24; i++) {
-          redCells += `<div class="byte-cell" style="background:#ef4444; color:#fff;">R</div>`;
+          redCells += `<div class="byte-cell" style="background:var(--accent-orange); color:#1a0f07;">R</div>`;
         }
       }
 
@@ -1270,11 +1284,11 @@
           <div class="bus-lane">
             <div style="display:flex; justify-content:space-between; font-size:0.85rem;">
               <strong>64-Byte CPU Cache Line Bus (${simAoSMode ? 'Array of Structs' : 'Planar Struct of Arrays'})</strong>
-              <span style="color:${simAoSMode ? 'var(--accent-red)' : 'var(--accent-green)'}; font-weight:700;">${busWaste}</span>
+              <span style="color:${simAoSMode ? 'var(--accent-terracotta)' : 'var(--accent-orange)'}; font-weight:700;">${busWaste}</span>
             </div>
             <div class="byte-strip">${redCells}</div>
           </div>
-          <div style="font-size:0.85rem; color:#cbd5e1; line-height:1.6;">
+          <div style="font-size:0.85rem; color:#faedd9; line-height:1.6;">
             ${simAoSMode ?
               '⚠️ <strong>In AoS mode:</strong> The CPU fetches Red, Green, and Blue bundled together. When calculating Red channel filters, the memory bus wastes 2 out of every 3 bytes!' :
               '🚀 <strong>In rcvc Planar SoA mode:</strong> All Red channel samples are contiguous. The 64-byte CPU cache line is 100% loaded with actionable data, unlocking 3.5× to 5× speedup!'}
@@ -1306,15 +1320,15 @@
       body.innerHTML = `
         <div class="stencil-container">
           <div>
-            <div style="font-size:0.8rem; color:#94a3b8; margin-bottom:0.35rem; text-align:center;">
+            <div style="font-size:0.8rem; color:var(--text-muted); margin-bottom:0.35rem; text-align:center;">
               ${isSobel ? 'Sobel Horizontal Kernel (Gx)' : '3x3 Box Blur Stencil (Mean)'}
             </div>
             <div class="matrix-3x3">${matrixHtml}</div>
           </div>
-          <div style="max-width:320px; font-size:0.85rem; color:#cbd5e1;">
-            <h4 style="color:var(--accent-cyan); margin-bottom:0.5rem;">Convolution Math</h4>
+          <div style="max-width:320px; font-size:0.85rem; color:#faedd9;">
+            <h4 style="color:var(--accent-orange); margin-bottom:0.5rem;">Convolution Math</h4>
             <p>Slide this stencil over each pixel neighborhood. Flat regions sum to <strong>0</strong>. Boundaries produce high magnitudes!</p>
-            <div style="margin-top:0.75rem; background:#1e293b; padding:0.6rem; border-radius:6px; font-family:var(--font-mono); font-size:0.75rem;">
+            <div style="margin-top:0.75rem; background:#251a12; border:1px solid #4a3424; padding:0.6rem; border-radius:6px; font-family:var(--font-mono); font-size:0.75rem; color:var(--accent-gold);">
               Gx = -1·P00 + 1·P02 - 2·P10 + 2·P12 - 1·P20 + 1·P22
             </div>
           </div>
@@ -1333,14 +1347,14 @@
       body.innerHTML = `
         <div class="simd-highway">
           <div class="lane-row">
-            <span style="font-size:0.8rem; font-weight:700; width:140px; color:var(--accent-orange);">Scalar Loop:</span>
-            <div style="font-size:0.8rem; color:#cbd5e1;">1 operation per clock cycle (8 cycles total)</div>
+            <span style="font-size:0.8rem; font-weight:700; width:140px; color:var(--accent-brown);">Scalar Loop:</span>
+            <div style="font-size:0.8rem; color:#faedd9;">1 operation per clock cycle (8 cycles total)</div>
           </div>
-          <div class="lane-row" style="border:1px solid var(--accent-cyan);">
-            <span style="font-size:0.8rem; font-weight:700; width:140px; color:var(--accent-cyan);">SIMD Vector:</span>
+          <div class="lane-row" style="border:1px solid var(--accent-orange);">
+            <span style="font-size:0.8rem; font-weight:700; width:140px; color:var(--accent-orange);">SIMD Vector:</span>
             <div class="lane-cells">${laneCells}</div>
           </div>
-          <div id="simdSpeedometer" style="text-align:center; margin-top:1rem; font-family:var(--font-mono); font-size:0.9rem; color:var(--accent-green);">
+          <div id="simdSpeedometer" style="text-align:center; margin-top:1rem; font-family:var(--font-mono); font-size:0.9rem; color:var(--accent-orange); font-weight:700;">
             Speedup: 8× Parallel Speedup (ARM NEON / AVX2 / WASM SIMD)
           </div>
         </div>
@@ -1350,13 +1364,15 @@
     function runSimdRace() {
       const boxes = document.querySelectorAll('.lane-box');
       boxes.forEach(b => {
-        b.style.background = 'var(--accent-cyan)';
-        b.style.color = '#000';
+        b.style.background = 'var(--accent-orange)';
+        b.style.color = '#1a0f07';
+        b.style.fontWeight = '700';
       });
       setTimeout(() => {
         boxes.forEach(b => {
-          b.style.background = '#0f172a';
-          b.style.color = '#fff';
+          b.style.background = '#18100a';
+          b.style.color = 'var(--accent-brown)';
+          b.style.fontWeight = 'normal';
         });
       }, 500);
     }
@@ -1364,17 +1380,16 @@
     /* Simulation 7: Stream Laser */
     function renderStreamLaser() {
       const body = document.getElementById('simBody');
-      const text = "ATGC\\nGGAC\\nTTGA\\nCCAA";
       body.innerHTML = `
         <div style="width:100%; max-width:650px; text-align:center;">
-          <div style="font-size:0.85rem; color:#94a3b8; margin-bottom:0.5rem;">
+          <div style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0.5rem;">
             Genomic Data Stream (FASTA / FASTQ)
           </div>
-          <div style="background:#1e293b; padding:1rem; border-radius:8px; font-family:var(--font-mono); font-size:1.1rem; letter-spacing:0.15em; border:1px solid #334155;" id="streamBox">
-            <span style="color:#00f2fe;">ATGC</span><span style="color:#ef4444; font-weight:700;">\\n</span><span style="color:#00f2fe;">GGAC</span><span style="color:#ef4444; font-weight:700;">\\n</span><span style="color:#00f2fe;">TTGA</span><span style="color:#ef4444; font-weight:700;">\\n</span><span style="color:#00f2fe;">CCAA</span>
+          <div style="background:#251a12; padding:1rem; border-radius:8px; font-family:var(--font-mono); font-size:1.1rem; letter-spacing:0.15em; border:1px solid #4a3424;" id="streamBox">
+            <span style="color:var(--accent-brown);">ATGC</span><span style="color:var(--accent-orange); font-weight:700;">\\n</span><span style="color:var(--accent-brown);">GGAC</span><span style="color:var(--accent-orange); font-weight:700;">\\n</span><span style="color:var(--accent-brown);">TTGA</span><span style="color:var(--accent-orange); font-weight:700;">\\n</span><span style="color:var(--accent-brown);">CCAA</span>
           </div>
-          <div style="margin-top:1rem; font-size:0.85rem; color:#cbd5e1;">
-            Laser Status: <strong style="color:var(--accent-cyan);">Zero-Copy Fat Pointer Slices Active (3.24 GiB/s)</strong>
+          <div style="margin-top:1rem; font-size:0.85rem; color:#faedd9;">
+            Laser Status: <strong style="color:var(--accent-orange);">Zero-Copy Fat Pointer Slices Active (3.24 GiB/s)</strong>
           </div>
         </div>
       `;
@@ -1383,11 +1398,11 @@
     function fireLaser() {
       const box = document.getElementById('streamBox');
       if (box) {
-        box.style.borderColor = 'var(--accent-cyan)';
-        box.style.boxShadow = '0 0 25px rgba(0, 242, 254, 0.4)';
+        box.style.borderColor = 'var(--accent-orange)';
+        box.style.boxShadow = '0 0 25px rgba(255, 120, 31, 0.45)';
         setTimeout(() => {
           box.style.boxShadow = 'none';
-          box.style.borderColor = '#334155';
+          box.style.borderColor = '#4a3424';
         }, 400);
       }
     }
@@ -1399,23 +1414,23 @@
       body.innerHTML = `
         <div class="core-rack">
           <div class="core-card p-core">
-            <div style="font-size:0.8rem; font-weight:700;">P-Core 0</div>
+            <div style="font-size:0.8rem; font-weight:700; color:var(--accent-orange);">P-Core 0</div>
             <div class="core-status" id="coreStatus_0">${dispatchSlots[0] ? 'BUSY (PID ' + dispatchSlots[0] + ')' : 'IDLE'}</div>
           </div>
           <div class="core-card p-core">
-            <div style="font-size:0.8rem; font-weight:700;">P-Core 1</div>
+            <div style="font-size:0.8rem; font-weight:700; color:var(--accent-orange);">P-Core 1</div>
             <div class="core-status" id="coreStatus_1">${dispatchSlots[1] ? 'BUSY (PID ' + dispatchSlots[1] + ')' : 'IDLE'}</div>
           </div>
           <div class="core-card e-core">
-            <div style="font-size:0.8rem; font-weight:700;">E-Core 2</div>
+            <div style="font-size:0.8rem; font-weight:700; color:var(--accent-brown);">E-Core 2</div>
             <div class="core-status" id="coreStatus_2">${dispatchSlots[2] ? 'BUSY (PID ' + dispatchSlots[2] + ')' : 'IDLE'}</div>
           </div>
           <div class="core-card gpu-core">
-            <div style="font-size:0.8rem; font-weight:700;">GPU Slot</div>
+            <div style="font-size:0.8rem; font-weight:700; color:var(--accent-terracotta);">GPU Slot</div>
             <div class="core-status" id="coreStatus_3">${dispatchSlots[3] ? 'BUSY (PID ' + dispatchSlots[3] + ')' : 'IDLE'}</div>
           </div>
         </div>
-        <div style="margin-top:1.5rem; font-size:0.85rem; color:#cbd5e1; text-align:center;">
+        <div style="margin-top:1.5rem; font-size:0.85rem; color:#faedd9; text-align:center;">
           Direct <code>posix_spawnp</code> orchestration. No shell overhead. Memory pressure guard active.
         </div>
       `;
@@ -1445,25 +1460,25 @@
       body.innerHTML = `
         <div style="display:flex; flex-direction:column; align-items:center; gap:1rem;">
           <div style="display:flex; gap:1.5rem; align-items:center;">
-            <div style="background:#1e293b; padding:0.75rem 1rem; border-radius:6px; border:1px solid #3b82f6; text-align:center;">
-              <div style="font-size:0.7rem; color:#94a3b8;">Weight (w)</div>
-              <div style="font-family:var(--font-mono); font-size:1.1rem; color:#00f2fe;">3.00</div>
-              <div style="font-size:0.65rem; color:#10b981;" id="gradW">grad: +0.00</div>
+            <div style="background:#251a12; padding:0.75rem 1rem; border-radius:6px; border:1px solid #4a3424; text-align:center;">
+              <div style="font-size:0.7rem; color:var(--text-muted);">Weight (w)</div>
+              <div style="font-family:var(--font-mono); font-size:1.1rem; color:var(--accent-orange); font-weight:700;">3.00</div>
+              <div style="font-size:0.65rem; color:var(--accent-brown);" id="gradW">grad: +0.00</div>
             </div>
-            <span style="font-size:1.2rem; font-weight:700;">×</span>
-            <div style="background:#1e293b; padding:0.75rem 1rem; border-radius:6px; border:1px solid #3b82f6; text-align:center;">
-              <div style="font-size:0.7rem; color:#94a3b8;">Input (x)</div>
-              <div style="font-family:var(--font-mono); font-size:1.1rem; color:#00f2fe;">4.00</div>
-              <div style="font-size:0.65rem; color:#10b981;" id="gradX">grad: +0.00</div>
+            <span style="font-size:1.2rem; font-weight:700; color:var(--accent-brown);">×</span>
+            <div style="background:#251a12; padding:0.75rem 1rem; border-radius:6px; border:1px solid #4a3424; text-align:center;">
+              <div style="font-size:0.7rem; color:var(--text-muted);">Input (x)</div>
+              <div style="font-family:var(--font-mono); font-size:1.1rem; color:var(--accent-orange); font-weight:700;">4.00</div>
+              <div style="font-size:0.65rem; color:var(--accent-brown);" id="gradX">grad: +0.00</div>
             </div>
-            <span style="font-size:1.2rem; font-weight:700;">=</span>
-            <div style="background:#1e293b; padding:0.75rem 1.25rem; border-radius:6px; border:1px solid #10b981; text-align:center;">
-              <div style="font-size:0.7rem; color:#94a3b8;">Output (y)</div>
-              <div style="font-family:var(--font-mono); font-size:1.1rem; color:#10b981;">12.00</div>
-              <div style="font-size:0.65rem; color:#10b981;">grad: +1.00</div>
+            <span style="font-size:1.2rem; font-weight:700; color:var(--accent-brown);">=</span>
+            <div style="background:#251a12; padding:0.75rem 1.25rem; border-radius:6px; border:1px solid var(--accent-orange); text-align:center;">
+              <div style="font-size:0.7rem; color:var(--text-muted);">Output (y)</div>
+              <div style="font-family:var(--font-mono); font-size:1.1rem; color:var(--accent-gold); font-weight:700;">12.00</div>
+              <div style="font-size:0.65rem; color:var(--accent-gold);">grad: +1.00</div>
             </div>
           </div>
-          <div style="font-size:0.85rem; color:#cbd5e1; margin-top:0.5rem;" id="backpropMsg">
+          <div style="font-size:0.85rem; color:#faedd9; margin-top:0.5rem;" id="backpropMsg">
             Click <strong>Forward & Backprop Pass</strong> to propagate gradients through the chain rule!
           </div>
         </div>
@@ -1476,9 +1491,11 @@
       const msg = document.getElementById('backpropMsg');
       if (gW && gX) {
         gW.innerText = "grad: +4.00 (dy/dw = x)";
-        gW.style.color = "var(--accent-cyan)";
+        gW.style.color = "var(--accent-orange)";
+        gW.style.fontWeight = "700";
         gX.innerText = "grad: +3.00 (dy/dx = w)";
-        gX.style.color = "var(--accent-cyan)";
+        gX.style.color = "var(--accent-orange)";
+        gX.style.fontWeight = "700";
         msg.innerText = "✔ Gradients propagated via Chain Rule! Ready for AdamW / SGD parameter update.";
       }
     }
@@ -1489,7 +1506,7 @@
       body.innerHTML = `
         <div class="canvas-container">
           <canvas id="visionCanvas" width="360" height="240"></canvas>
-          <div style="font-size:0.85rem; color:#cbd5e1;">
+          <div style="font-size:0.85rem; color:#faedd9;">
             Live WebAssembly Frame Processing. Toggle filters above to see 60 FPS in-place C-buffer mutation!
           </div>
         </div>
@@ -1503,23 +1520,22 @@
       if (!cvs) return;
       const ctx = cvs.getContext('2d');
 
-      // Draw stylized animated test card
       let frame = 0;
       function drawFrame() {
         if (!document.getElementById('visionCanvas')) return;
-        ctx.fillStyle = '#0f172a';
+        ctx.fillStyle = '#16100b';
         ctx.fillRect(0, 0, cvs.width, cvs.height);
 
-        // Draw geometric shapes
-        ctx.fillStyle = '#38bdf8';
+        // Autumn test geometry
+        ctx.fillStyle = '#ff781f';
         ctx.beginPath();
         ctx.arc(180 + Math.sin(frame * 0.05) * 50, 120, 45, 0, Math.PI * 2);
         ctx.fill();
 
-        ctx.fillStyle = '#f43f5e';
+        ctx.fillStyle = '#c2410c';
         ctx.fillRect(60, 80 + Math.cos(frame * 0.04) * 30, 60, 60);
 
-        ctx.fillStyle = '#eab308';
+        ctx.fillStyle = '#d4a373';
         ctx.beginPath();
         ctx.moveTo(260, 60);
         ctx.lineTo(310, 150);
@@ -1537,9 +1553,9 @@
 
           if (canvasFilter === 'duotone') {
             if (gray > 90) {
-              data[i] = 0; data[i+1] = 242; data[i+2] = 254; // Neon Cyan
+              data[i] = 255; data[i+1] = 120; data[i+2] = 31; // Maple Pumpkin Orange
             } else {
-              data[i] = 157; data[i+1] = 78; data[i+2] = 221; // Magenta
+              data[i] = 160; data[i+1] = 82; data[i+2] = 45;  // Warm Sienna Chestnut Brown
             }
           } else if (canvasFilter === 'sobel') {
             data[i] = gray; data[i+1] = gray; data[i+2] = gray;
