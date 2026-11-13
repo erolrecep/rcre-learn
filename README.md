@@ -57,6 +57,17 @@ New to low-level computing terminology? Check out the comprehensive, beginner-fr
 
 ---
 
+## 🍓 Small-Form-Factor & Edge Computing Guide (RPi 3, RPi 4, RPi 5, Jetson)
+
+Want to run `rcre`, `rcvc`, and `gnew-parallel` on single-board computers or resource-constrained devices?  
+Read the complete [**Edge & Resource-Constrained Computing Guide (`docs/RESOURCE_CONSTRAINED_DEVICES.md`)**](docs/RESOURCE_CONSTRAINED_DEVICES.md) covering:
+* **Home Edge Cluster Audit**: Benchmarks across Raspberry Pi 5, Pi 4, and Jetson Nano nodes.
+* **RPi 3 & Older Devices (1GB RAM)**: Step-by-step compilation commands for 32-bit (`armhf`) and 64-bit (`aarch64`).
+* **Memory Tuning**: Why zero-heap arenas (`RCRE_Arena`) and planar tiles (`rcvc`) keep memory usage under 20MB and prevent OOM swap freezes.
+* **Browser Access Report**: Compatibility analysis of `rcre-learn` vs. `rcre` playground on embedded SBC browsers.
+
+---
+
 ## 🚀 Quick Start
 
 ### 1. Run Verification Suite (ASan & UBSan Clean)
