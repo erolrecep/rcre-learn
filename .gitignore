@@ -1,0 +1,11 @@
+# Build artifacts
+bin/
+build/
+*.o
+*.a
+*.dylib
+*.so
+*.wasm
+
+# macOS
+.DS_Store
