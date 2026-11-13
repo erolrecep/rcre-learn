@@ -43,6 +43,20 @@ Most computer science education teaches students to treat computers as black box
 
 ---
 
+## 📖 Systems Lexicon & Technical Appendix
+
+New to low-level computing terminology? Check out the comprehensive, beginner-friendly [**Technical Appendix & Glossary (`docs/GLOSSARY.md`)**](docs/GLOSSARY.md) explaining:
+* **Sanitizers (ASan, UBSan)**: Compiler X-ray machines catching memory bugs and undefined behavior.
+* **Zero-Dependency**: Handcrafted clockwork architectures that run forever without NPM/pip vulnerability drift.
+* **SIMD**: 8-arm parallel robotic vector registers (ARM NEON, AVX2, WASM SIMD128).
+* **Linear Memory Arenas**: $O(1)$ scratchpad memory buffers with bulk rewind.
+* **SoA vs. AoS**: Struct-of-Arrays vs Array-of-Structs cache saturation.
+* **Fat-Pointer Slices, Fixed-Point Math, LSB Bit-Exact Parity, Kernel Reactors**, and more.
+
+*(You can also click the **"📖 Systems Lexicon"** button in the top-right header of the web app anytime for an interactive search modal!)*
+
+---
+
 ## 🚀 Quick Start
 
 ### 1. Run Verification Suite (ASan & UBSan Clean)
